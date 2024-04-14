@@ -5,7 +5,6 @@ import Mainpage from './Component/Card/Main';
 function App() {
   return (
     <div className="App">
-          <h1>Akash </h1>
           <Mainpage />
     </div>
   );
