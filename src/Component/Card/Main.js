@@ -17,6 +17,7 @@ const Mainpage= ()=>{
     }
 
     useEffect(()=>{
+        
         async function fetchPokedata(){
             const response= await axios.get(url)
             console.log(response.data.next);
