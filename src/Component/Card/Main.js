@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pokecard from "./Pokecard";
+import Buttons from "./Buttons";
 
 const Mainpage= ()=>{
     const[pokedata, setPokedata]=useState(null);
@@ -28,25 +29,26 @@ const Mainpage= ()=>{
         fetchPokedata();
     },[url]);
 
-    function previous(){
-        setUrl(prevurl);
-    }
-    function next(){
-        setUrl(nexturl);
+    const pagination = {
+        previous: ()=>{
+            setUrl(prevurl);
+        },
+        next: ()=>{
+            setUrl(nexturl);
+        },
+        prevurl : prevurl,
+        nexturl : nexturl
     }
 
     return(
         <>
-          <div>
-            {prevurl && <button onClick={previous}>previous</button>}
-            {nexturl && <button onClick={next}>next</button>}
-        </div>
+                <Buttons pagination={pagination}/>
         <div className="flex justify-evenly flex-wrap">
                  {
                     pokedata && pokedata.map(p=> <Pokecard key={p.data.id} pokemon={p.data} />)
                  }
         </div>
-      
+    
         </>
         
     )
