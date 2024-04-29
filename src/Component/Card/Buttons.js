@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { changeUrl} from '../../features/Pokemon/pokemonSlice';
+import { updateUrl} from '../../features/Pokemon/pokemonSlice';
 
 function Buttons({event}) {
 
@@ -9,11 +9,11 @@ function Buttons({event}) {
     const {nextUrl, prevUrl} = event
 
    const previous = () =>{
-        dispatch(changeUrl(prevUrl));
+        dispatch(updateUrl(prevUrl));
    }
 
    const next = () =>{
-        dispatch(changeUrl(nextUrl));
+        dispatch(updateUrl(nextUrl));
    }
 
   return (

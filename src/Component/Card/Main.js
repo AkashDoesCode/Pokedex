@@ -5,13 +5,12 @@ import Buttons from "./Buttons";
 import Search from "./Search";
 import { useSelector, useDispatch} from 'react-redux'
 import { fetchPokemons } from '../../features/Pokemon/pokemonSlice';
-import LoadingScreen from "./LodingScreen";
+import LoadingPage from "./LodingPage";
+import ErrorPage from "./ErrorPage";
 
 const Mainpage= ()=>{
     const {loading,error} = useSelector(state =>state.pokemon)
-    //console.log(loading);
     const {pokemons, url, nextUrl, prevUrl}  = useSelector(state => state.pokemon.data)
-    console.log(pokemons);
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -64,8 +63,8 @@ const Mainpage= ()=>{
 
     return(
         <>
-            {loading && <LoadingScreen />}
-            {!loading && error? <div>{error}</div>:null}
+            {loading && <LoadingPage />}
+            {!loading && error? <ErrorPage />:null}
             {!loading && pokemons.length?(
                 <>
                     <Search />    

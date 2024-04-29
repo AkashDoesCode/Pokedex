@@ -2,6 +2,8 @@ import React, { useEffect, useState} from "react";
 import {getColor, getDescription, getVoice, stop} from './service'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleStop, faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 
 const Pokecard = ({pokemon})=>{
@@ -49,7 +51,7 @@ const Pokecard = ({pokemon})=>{
 
             <div className={`${getColor(types[0].type.name)} h-40 opacity-60 rounded-t-lg`}></div>
 
-            <img className="absolute z-10 top-0 left-0 right-0 bottom-0 m-auto mt-4 h-36 p-3" src={sprites.other.dream_world.front_default} />
+            <LazyLoadImage className="absolute z-10 top-0 left-0 right-0 bottom-0 m-auto mt-4 h-36 p-3" src={sprites.other.dream_world.front_default} />
            
     
             <p className= 'text-center font-semibold'>{name}</p>
