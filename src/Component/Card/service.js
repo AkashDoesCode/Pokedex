@@ -1,4 +1,8 @@
-const getColor = (type) => {
+import axios from "axios";
+
+export const types = ['normal', 'fire','water','electric', 'grass', 'ice', 'fighting','poison','ground', 'flying','psychic','bug','rock','ghost','dragon','dark','steel','fairy']
+
+export const getColor = (type) => {
     switch(type){
         case 'normal':
             return 'bg-[#A8A77A]';
@@ -39,23 +43,44 @@ const getColor = (type) => {
         default :
             return ;
     }
-    // normal: 'bg-[#A8A77A]',
-    // fire: 'bg-[#EE8130]',
-    // water: 'bg-[#EE8130]',
-    // electric: 'bg-[#F7D02C]',
-    // grass: 'bg-[#7AC74C]',
-    // ice: 'bg-[#96D9D6]',
-    // fighting: 'bg-[#C22E28]',
-    // poison: 'bg-[#A33EA1]',
-    // ground: 'bg-[#E2BF65]',
-    // flying: 'bg-[#A98FF3]',
-    // psychic: 'bg-[#F95587]',
-    // bug: 'bg-[#A6B91A]',
-    // rock: 'bg-[#B6A136]',
-    // ghost: 'bg-[#735797]',
-    // dragon: 'bg-[#6F35FC]',
-    // dark: 'bg-[#705746]',
-    // steel: 'bg-[#B7B7CE]',
-    // fairy: 'bg-[#D685AD]'
 }
-export default getColor;
+
+export const getDescription = (species,types) =>{
+        return axios.get(species.url).then(res => {
+            res = res.data.flavor_text_entries[1].flavor_text;
+            let result = '';
+            if(types.length > 1){
+                result = types[0].type.name + ' and ' + types[1].type.name;
+            }
+            else{
+                result = types[0].type.name;
+            }
+            let description = `${species.name}, a ${result} type pokemon. ${res}`;
+            return description;
+        }).catch(err => 
+            console.log(err)
+        )
+    }
+
+export const getVoice = (description, isVisible, setVisible) =>{
+
+    //if( description == undefined) return ;
+    description = description.replace(/(\r\n|\n|\r)/gm, " ");
+    const synth = window.speechSynthesis;
+    let voices= synth.getVoices();
+    let utterThis = new SpeechSynthesisUtterance(description);
+    utterThis.voice = voices[6];
+    utterThis.pitch = 0.8;
+    utterThis.rate = 1;
+    utterThis.onend =() => {
+        setVisible(isVisible)
+    }
+    //synth.speak(utterThis);
+
+}
+
+export const stop = () =>{
+    window.speechSynthesis.cancel();
+}
+
+

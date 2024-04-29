@@ -1,13 +1,25 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { changeUrl} from '../../features/Pokemon/pokemonSlice';
 
-function Buttons({pagination}) {
+function Buttons({event}) {
 
-    const{previous, next, prevurl, nexturl}=pagination;
+    //const{previous, next, prevurl, nexturl}=pagination;
+    const dispatch = useDispatch();
+    const {nextUrl, prevUrl} = event
+
+   const previous = () =>{
+        dispatch(changeUrl(prevUrl));
+   }
+
+   const next = () =>{
+        dispatch(changeUrl(nextUrl));
+   }
 
   return (
     <div className='my-3 text-white'>
-        {prevurl && <button className='bg-slate-600 mr-5 w-24 rounded-full tracking-wide' onClick={previous}>Previous</button>}
-        {nexturl&& <button className='bg-slate-600 ml-5 w-24 rounded-full tracking-wide' onClick={next}>Next</button>}
+        {prevUrl && <button className='bg-slate-600 mr-5 w-24 rounded-full tracking-wide' onClick={previous}>Previous</button>}
+        {nextUrl&& <button className='bg-slate-600 ml-5 w-24 rounded-full tracking-wide' onClick={next}>Next</button>}
     </div>
   )
 }
