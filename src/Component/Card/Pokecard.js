@@ -7,15 +7,13 @@ import 'react-lazy-load-image-component/src/effects/blur.css'
 
 
 const Pokecard = ({pokemon})=>{
-   const{id,name, abilities, height, weight, stats, sprites, types, species}=pokemon;
+   const{id,name,stats, sprites, types, species}=pokemon;
    const[description,setDescription]=useState();
    const[isVisible, setVisible] = useState(true);
    const[count, setCount]=useState(0);
 
-//    setTimeout(() =>{
-//         !isVisible && setVisible(true)
-//         console.log('hi '+ isVisible);
-//    },1000)
+   const pokemonImage = (sprites.other.dream_world.front_default) ? 
+   sprites.other.dream_world.front_default : sprites.other.home.front_default;
 
     const stopVoice = () =>{
         stop();
@@ -51,7 +49,7 @@ const Pokecard = ({pokemon})=>{
 
             <div className={`${getColor(types[0].type.name)} h-40 opacity-60 rounded-t-lg`}></div>
 
-            <LazyLoadImage className="absolute z-10 top-0 left-0 right-0 bottom-0 m-auto mt-4 h-36 p-3" src={sprites.other.dream_world.front_default} />
+            <LazyLoadImage className="absolute z-10 top-0 left-0 right-0 bottom-0 m-auto mt-4 h-36 p-3" src={pokemonImage} />
            
     
             <p className= 'text-center font-semibold'>{name}</p>

@@ -4,7 +4,7 @@ import Mainpage from './Component/Card/Main';
 function App() {
   return (
     <div className="App">
-         <Mainpage />
+        <Mainpage />
     </div>
   );
 }

@@ -47,7 +47,7 @@ export const getColor = (type) => {
 
 export const getDescription = (species,types) =>{
         return axios.get(species.url).then(res => {
-            res = res.data.flavor_text_entries[1].flavor_text;
+            res = res.data.flavor_text_entries[0].flavor_text;
             let result = '';
             if(types.length > 1){
                 result = types[0].type.name + ' and ' + types[1].type.name;

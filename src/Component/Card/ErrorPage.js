@@ -4,7 +4,6 @@ import image from '../../asset/pikachu-crying.gif'
 
 function ErrorPage() {
     const {error} = useSelector(state => state.pokemon)
-    console.log(error)
   return (
     <div className='flex flex-col justify-center items-center h-screen p-16 bg-white gap-8'>
         <img className='h-32' src={image}/>
