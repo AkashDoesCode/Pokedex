@@ -1,9 +1,8 @@
 import React, { useEffect, useState} from "react";
-import {getColor, getDescription, getVoice, stop} from './service'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleStop, faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { useNavigate } from "react-router-dom";
+import { getColor } from "../../services/getColor";
 
 
 const Pokecard = ({pokemon})=>{
@@ -15,35 +14,40 @@ const Pokecard = ({pokemon})=>{
    const pokemonImage = (sprites.other.dream_world.front_default) ? 
    sprites.other.dream_world.front_default : sprites.other.home.front_default;
 
-    const stopVoice = () =>{
-        stop();
-        setVisible(!isVisible);
-    }
+    // const stopVoice = () =>{
+    //     stop();
+    //     setVisible(!isVisible);
+    // }
 
-    const speak=() => {
-        getDescription(species, types)
-        .then(res => {
-                setDescription(res);
-                setCount(count => count+1);
-                count && setVisible(!isVisible);
-        }).then(() => {
-            description && getVoice(description, isVisible, setVisible);
-        })
-        .catch(err =>
-            console.log(err)
-        )
+    // const speak=() => {
+    //     getDescription(species, types)
+    //     .then(res => {
+    //             setDescription(res);
+    //             setCount(count => count+1);
+    //             count && setVisible(!isVisible);
+    //     }).then(() => {
+    //         description && getVoice(description, isVisible, setVisible);
+    //     })
+    //     .catch(err =>
+    //         console.log(err)
+    //     )
+    // }
+    // useEffect(() =>{
+    //     speak();
+    // },[])
+
+    const navigate = useNavigate();
+    const handleNavigate = (name) =>{
+        navigate(`${name}`); 
     }
-    useEffect(() =>{
-        speak();
-    },[])
     
     return (
        <>
-        <div  className= 'relative bg-white w-60 mx-2 my-4 rounded-lg shadow-2xl shadow-black-500/50 scale-95 hover:transform hover:scale-105 transition duration-500 md:flex-row'>
+        <div onClick={() =>handleNavigate(name)}  className= 'relative bg-white w-60 mx-2 my-4 rounded-lg shadow-2xl shadow-black-500/50 scale-95 hover:transform hover:scale-105 transition duration-500 md:flex-row'>
 
-            <div onClick={speak} className= {`${isVisible ? 'block':'hidden'} absolute z-10 text-[#888888] text-lg left-3 top-2 cursor-pointer`}> <FontAwesomeIcon icon={faVolumeHigh} /></div>
+            {/* <div onClick={speak} className= {`${isVisible ? 'block':'hidden'} absolute z-10 text-[#888888] text-lg left-3 top-2 cursor-pointer`}> <FontAwesomeIcon icon={faVolumeHigh} /></div>
            
-            <div onClick={stopVoice}  className={`${isVisible ? 'hidden':'block'} absolute z-10 text-[#888888] text-lg left-3 top-2 cursor-pointer`}> <FontAwesomeIcon icon={faCircleStop} /></div>
+            <div onClick={stopVoice}  className={`${isVisible ? 'hidden':'block'} absolute z-10 text-[#888888] text-lg left-3 top-2 cursor-pointer`}> <FontAwesomeIcon icon={faCircleStop} /></div> */}
 
             <div className= 'absolute z-20 right-3 top-3 bg-[#888888] px-2 rounded-3xl text-white text-sm'>#{id}</div>
 

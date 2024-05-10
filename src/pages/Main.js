@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Pokecard from "./Pokecard";
-import Buttons from "./Buttons";
-import Search from "./Search";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch} from 'react-redux'
-import { fetchPokemons } from '../../features/Pokemon/pokemonSlice';
-import LoadingPage from "./LodingPage";
-import ErrorPage from "./ErrorPage";
-import { fetchTypePokemons } from "../../features/Pokemon/pokemonSlice";
+
+import Pokecard from "../Component/Card/Pokecard";
+import Buttons from "../Component/Card/Buttons";
+import Search from "../Component/Card/Search";
+import LoadingPage from "../Component/Card/LodingPage";
+import ErrorPage from "../Component/Card/ErrorPage";
+
+import { fetchTypePokemons } from "../features/Pokemon/pokemonSlice";
+import { fetchPokemons } from '../features/Pokemon/pokemonSlice';
+import Header from "./Header";
+import Footer from "./Footer"
+
 
 const Mainpage= ()=>{
     const dispatch = useDispatch();
@@ -20,6 +24,7 @@ const Mainpage= ()=>{
         else dispatch(fetchTypePokemons());
     },[url, pokemontype])
 
+   
     
 
     return(
@@ -28,13 +33,15 @@ const Mainpage= ()=>{
             {!loading && error? <ErrorPage />:null}
             {!loading && pokemons.length?(
                 <>
+                    <Header />
                     <Search />    
                     <div className="flex justify-center flex-wrap">
                       {
-                         pokemons && pokemons.map(pokemon=> <Pokecard key={pokemon.id} pokemon={pokemon} />)
+                         pokemons && pokemons.map(pokemon=> <Pokecard  key={pokemon.id} pokemon={pokemon} />)
                       }
                     </div>
                     {pokemontype =='all' && <Buttons event={{nextUrl, prevUrl}}/>}
+                    <Footer />
                 </>
 
             ):null}          

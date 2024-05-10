@@ -86,6 +86,7 @@ const pokemonSlice = createSlice({
             state.loading =false
             state.data.pokemons = []
             state.error = action.error
+
         })
 
         //for any typed pokemon

@@ -17,7 +17,7 @@ function Buttons({event}) {
    }
 
   return (
-    <div className='my-3 text-white'>
+    <div className='flex justify-center my-3 text-white'>
         {prevUrl && <button className='bg-slate-600 mr-5 w-24 rounded-full tracking-wide' onClick={previous}>Previous</button>}
         {nextUrl&& <button className='bg-slate-600 ml-5 w-24 rounded-full tracking-wide' onClick={next}>Next</button>}
     </div>

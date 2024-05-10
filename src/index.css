@@ -7,6 +7,19 @@
   box-sizing: border-box;
   
 }
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 body {
   margin: 0;
   background-color: rgb(247, 243, 243);
