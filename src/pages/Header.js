@@ -19,7 +19,7 @@ function Header() {
       <p className="text-6xl">é</p>
       <p className="text-6xl">d</p>
       <p className="text-6xl">e</p>
-      <p className="text-6xl"></p>
+      <p className="text-6xl">x</p>
     </div>
   );
 }

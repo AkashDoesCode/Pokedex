@@ -35,7 +35,8 @@ function Search() {
     }
 
     const handleSearchInput = (event) =>{
-        setSearchedPokemon(event.target.value); 
+        let searchedValue = event.target.value.toLowerCase();
+        setSearchedPokemon(searchedValue); 
     }
 
 
