@@ -38,10 +38,10 @@ function EvolutionChain() {
              evolutionchain.map((p ,index) => 
             <div key={index}>
                 <div className={` mx-auto w-[100px] rounded-full text-center text-xs text-white ${getColor(pokemon.types[0].type.name)}`} >
-                  <img className='h-16 m-auto' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${p.pokemonId}.png`}/>
+                  <img className='h-16 m-auto' alt='loading...' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${p.pokemonId}.png`}/>
                   <div className='pb-4'>{p.pokemonName}</div>
                 </div>
-                <FontAwesomeIcon className={index == evolutionchain.length-1 ?'hidden' : 'block mx-auto my-3'} icon={faChevronCircleDown}/>
+                <FontAwesomeIcon className={index === evolutionchain.length-1 ?'hidden' : 'block mx-auto my-3'} icon={faChevronCircleDown}/>
             </div>
              
              )  

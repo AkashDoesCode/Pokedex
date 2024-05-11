@@ -40,7 +40,7 @@ const Mainpage= ()=>{
                          pokemons && pokemons.map(pokemon=> <Pokecard  key={pokemon.id} pokemon={pokemon} />)
                       }
                     </div>
-                    {pokemontype =='all' && <Buttons event={{nextUrl, prevUrl}}/>}
+                    {pokemontype ==='all' && <Buttons event={{nextUrl, prevUrl}}/>}
                     <Footer />
                 </>
 
