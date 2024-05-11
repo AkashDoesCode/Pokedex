@@ -37,7 +37,7 @@ export const fetchPokemons = createAsyncThunk('pokemon/fetchPokemons' , async(_,
 export const fetchTypePokemons = createAsyncThunk('pokemon/fetchTypePokemons' , async(_,{getState}) => {
     //await new Promise (resolve => setTimeout(resolve, 1000)); // loading screen for one seccond
     const pokemontype= getState().pokemon.pokemontype;
-    if(pokemontype == 'all') return ;
+    if(pokemontype === 'all') return ;
 
     const url = 'https://pokeapi.co/api/v2/type/' + pokemontype;
     const response = await axios.get(url);

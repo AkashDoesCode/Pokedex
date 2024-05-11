@@ -6,35 +6,14 @@ import { getColor } from "../../services/getColor";
 
 
 const Pokecard = ({pokemon})=>{
-   const{id,name,stats, sprites, types, species}=pokemon;
-   const[description,setDescription]=useState();
-   const[isVisible, setVisible] = useState(true);
-   const[count, setCount]=useState(0);
+
+   const{id,name,stats, sprites, types}=pokemon;
+ 
 
    const pokemonImage = (sprites.other.dream_world.front_default) ? 
    sprites.other.dream_world.front_default : sprites.other.home.front_default;
 
-    // const stopVoice = () =>{
-    //     stop();
-    //     setVisible(!isVisible);
-    // }
-
-    // const speak=() => {
-    //     getDescription(species, types)
-    //     .then(res => {
-    //             setDescription(res);
-    //             setCount(count => count+1);
-    //             count && setVisible(!isVisible);
-    //     }).then(() => {
-    //         description && getVoice(description, isVisible, setVisible);
-    //     })
-    //     .catch(err =>
-    //         console.log(err)
-    //     )
-    // }
-    // useEffect(() =>{
-    //     speak();
-    // },[])
+    
 
     const navigate = useNavigate();
     const handleNavigate = (name) =>{
@@ -45,15 +24,11 @@ const Pokecard = ({pokemon})=>{
        <>
         <div onClick={() =>handleNavigate(name)}  className= 'relative bg-white w-60 mx-2 my-4 rounded-lg shadow-2xl shadow-black-500/50 scale-95 hover:transform hover:scale-105 transition duration-500 md:flex-row'>
 
-            {/* <div onClick={speak} className= {`${isVisible ? 'block':'hidden'} absolute z-10 text-[#888888] text-lg left-3 top-2 cursor-pointer`}> <FontAwesomeIcon icon={faVolumeHigh} /></div>
-           
-            <div onClick={stopVoice}  className={`${isVisible ? 'hidden':'block'} absolute z-10 text-[#888888] text-lg left-3 top-2 cursor-pointer`}> <FontAwesomeIcon icon={faCircleStop} /></div> */}
-
             <div className= 'absolute z-20 right-3 top-3 bg-[#888888] px-2 rounded-3xl text-white text-sm'>#{id}</div>
 
             <div className={`${getColor(types[0].type.name)} h-40 opacity-60 rounded-t-lg`}></div>
 
-            <LazyLoadImage className="absolute z-10 top-0 left-0 right-0 bottom-0 m-auto mt-4 h-36 p-3" src={pokemonImage} />
+            <LazyLoadImage className="absolute z-10 top-0 left-0 right-0 bottom-0 m-auto mt-4 h-36 p-3" src={pokemonImage} alt="loading..." />
            
     
             <p className= 'text-center font-semibold'>{name}</p>

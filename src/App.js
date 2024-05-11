@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Mainpage from './pages/Main';
 import Fullcard from './pages/Fullcard';

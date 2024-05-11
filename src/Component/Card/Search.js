@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { types } from "../../services/types";
 import { useDispatch, useSelector } from "react-redux";
 import { updateType } from "../../features/Pokemon/pokemonSlice";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 
 function Search() {
@@ -21,7 +21,7 @@ function Search() {
 
     useEffect(()=>{
         setVal(pokemontype);
-    },[val])
+    },[pokemontype])
 
     const handleTypes = () =>{
         const selected = selectref.current.value;
@@ -29,7 +29,7 @@ function Search() {
     }
 
     const getSinglePokemon = () =>{
-      if(searchedPokemon!=undefined){
+      if(searchedPokemon!==undefined){
         navigate(`/${searchedPokemon}`);
       }
     }

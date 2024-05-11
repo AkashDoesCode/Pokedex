@@ -42,17 +42,17 @@ function Fullcard() {
 
   const toggleButton = (event) =>{
       const activeButton = event.target.innerText;
-      if(activeButton == 'Bio'){
+      if(activeButton === 'Bio'){
         setBioActive(true);
         setStatsActive(false);
         setEvaluationActive(false);
       }
-      if(activeButton == 'Stats'){
+      if(activeButton === 'Stats'){
         setBioActive(false);
         setStatsActive(true);
         setEvaluationActive(false);
       }
-      if(activeButton == 'Evolution'){
+      if(activeButton === 'Evolution'){
         setBioActive(false);
         setStatsActive(false);
         setEvaluationActive(true);
@@ -86,6 +86,7 @@ function Fullcard() {
                   pokemon.sprites.other.dream_world.front_default ||
                   pokemon.sprites.other.home.front_default
                 }
+                alt ="loading..."
               />
             
           </div>

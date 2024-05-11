@@ -20,7 +20,7 @@ const Mainpage= ()=>{
    
 
     useEffect(()=>{
-        if(pokemontype=='all') dispatch(fetchPokemons());
+        if(pokemontype==='all') dispatch(fetchPokemons());
         else dispatch(fetchTypePokemons());
     },[url, pokemontype])
 
