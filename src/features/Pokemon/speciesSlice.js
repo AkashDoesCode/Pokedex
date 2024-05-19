@@ -10,8 +10,8 @@ const initialState ={
 }
 
 
-export const fetchPokemonSpecies = createAsyncThunk('pokemonspecies/fetchPokemonSpecies' , async(id,{dispatch, getState}) => {
-        const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`
+export const fetchPokemonSpecies = createAsyncThunk('pokemonspecies/fetchPokemonSpecies' , async(url,{dispatch, getState}) => {
+        // const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`
         const response = await axios.get(url);
         const evolution_chain_url = response.data.evolution_chain.url;
         dispatch(fetchEvolution(evolution_chain_url));

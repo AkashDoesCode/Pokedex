@@ -7,7 +7,7 @@ import { faCircleStop, faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
 function Biography({props}) {
     const {pokemon} = useSelector((state) => state.singlepokemon);
     const {species} = useSelector((state) => state.species);
-    console.log(species);
+   
 
     const[isVisible, setVisible] = useState(true);
     const description = getPokemonDescription(species, pokemon.types);

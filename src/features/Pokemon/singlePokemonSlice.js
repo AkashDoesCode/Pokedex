@@ -14,8 +14,11 @@ export const fetchSinglePokemon = createAsyncThunk('singlepokemon/fetchSinglePok
         
         const url = `https://pokeapi.co/api/v2/pokemon/${nameorid}`
         const response = await axios.get(url);
-        const pokemonId = response.data.id;
-        dispatch(fetchPokemonSpecies(pokemonId));
+        console.log(response.data.species.url);
+        //const pokemonId = response.data.id;
+        const speciesUrl = response.data.species.url;
+        dispatch(fetchPokemonSpecies(speciesUrl));
+        //dispatch(fetchPokemonSpecies(pokemonId));
         await new Promise (resolve => setTimeout(resolve, 1000)); // loading screen for one seccond
         return response.data;
    
