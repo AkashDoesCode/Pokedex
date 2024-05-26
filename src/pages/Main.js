@@ -30,7 +30,7 @@ const Mainpage = () => {
 
   const dragComponent = useRef();
   const dropComponent = useRef();
-  
+
   const handleDrag = () => {
     const pokemonsClone = [...pokemons];
     const temp = pokemonsClone[dragComponent.current];
@@ -47,7 +47,7 @@ const Mainpage = () => {
         <>
           <Header />
           <Search />
-          <div className="flex justify-center flex-wrap">
+          <div className="flex justify-center flex-wrap touch-none">
             {pokemons &&
               pokemons.map((pokemon, index) => (
                 <div
