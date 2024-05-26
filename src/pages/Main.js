@@ -47,7 +47,7 @@ const Mainpage = () => {
         <>
           <Header />
           <Search />
-          <div className="flex justify-center flex-wrap touch-none">
+          <div className="flex justify-center flex-wrap">
             {pokemons &&
               pokemons.map((pokemon, index) => (
                 <div
