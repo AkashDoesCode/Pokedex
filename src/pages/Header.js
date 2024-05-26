@@ -39,7 +39,9 @@ function Header() {
         <p className="text-6xl">x</p>
       </div>
 
-      <div className="absolute top-6 right-10 " onClick={showProfileBox}>
+      {/* below code is for creating user avatar using react-nice-avatar library */}
+
+      <div className="absolute top-6 right-3 sm:right-10" onClick={showProfileBox}>
         <Avatar
           className="w-10 h-10 cursor-pointer border-2 border-red-500"
           {...config}

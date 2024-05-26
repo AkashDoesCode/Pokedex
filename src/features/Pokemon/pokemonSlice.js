@@ -69,6 +69,9 @@ const pokemonSlice = createSlice({
         },
         updateType : (state, action) =>{
             state.pokemontype = action.payload
+        },
+        updatePokemonsAfterDrag : (state, action) =>{
+            state.data.pokemons = action.payload
         }
        
     },
@@ -109,4 +112,4 @@ const pokemonSlice = createSlice({
 })
 
 export default pokemonSlice.reducer
-export const {saveUrl, updateUrl, updateType} = pokemonSlice.actions
+export const {saveUrl, updateUrl, updateType, updatePokemonsAfterDrag} = pokemonSlice.actions

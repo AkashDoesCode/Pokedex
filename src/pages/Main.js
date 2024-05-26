@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Pokecard from "../Component/Card/Pokecard";
@@ -7,10 +7,14 @@ import Search from "../Component/Card/Search";
 import LoadingPage from "../Component/Card/LodingPage";
 import ErrorPage from "../Component/Card/ErrorPage";
 
-import { fetchTypePokemons } from "../features/Pokemon/pokemonSlice";
+import {
+  fetchTypePokemons,
+  updatePokemonsAfterDrag,
+} from "../features/Pokemon/pokemonSlice";
 import { fetchPokemons } from "../features/Pokemon/pokemonSlice";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useState } from "react";
 
 const Mainpage = () => {
   const dispatch = useDispatch();
@@ -24,6 +28,17 @@ const Mainpage = () => {
     else dispatch(fetchTypePokemons());
   }, [url, pokemontype]);
 
+  const dragComponent = useRef();
+  const dropComponent = useRef();
+  
+  const handleDrag = () => {
+    const pokemonsClone = [...pokemons];
+    const temp = pokemonsClone[dragComponent.current];
+    pokemonsClone[dragComponent.current] = pokemonsClone[dropComponent.current];
+    pokemonsClone[dropComponent.current] = temp;
+    dispatch(updatePokemonsAfterDrag(pokemonsClone));
+  };
+
   return (
     <>
       {loading && <LoadingPage />}
@@ -34,9 +49,16 @@ const Mainpage = () => {
           <Search />
           <div className="flex justify-center flex-wrap">
             {pokemons &&
-              pokemons.map((pokemon) => (
-                <div key={pokemon.id} draggable>
-                  <Pokecard  pokemon={pokemon} />
+              pokemons.map((pokemon, index) => (
+                <div
+                  key={pokemon.id}
+                  draggable
+                  onDragStart={() => (dragComponent.current = index)}
+                  onDragEnter={() => (dropComponent.current = index)}
+                  onDragEnd={handleDrag}
+                  onDragOver={(e) => e.preventDefault()}
+                >
+                  <Pokecard pokemon={pokemon} />
                 </div>
               ))}
           </div>
