@@ -36,7 +36,7 @@ const ProtectedRoute = () => {
   if (!userInfo) {
     return (
       <>
-        <ToastContainer theme="light" />
+        <ToastContainer theme='colored' position="top-left"/>
         <div className="flex justify-center items-center h-screen">
           <motion.div
             variants={series}
@@ -48,12 +48,12 @@ const ProtectedRoute = () => {
           >
             <motion.div className="h-1/2 w-full bg-red-500 rounded-t-full border-2 border-b-0 border-[#555555] flex justify-center items-end">
               <div className=" h-1/4 w-1/4 bg-white rounded-t-full border-2 border-[#555555] border-b-0 flex justify-center items-end">
-                <div className="h-1/2 w-1/2 bg-[#555555] rounded-t-full "></div>
+                <div className="h-3/4 w-3/4 bg-white border-2 border-b-0 border-[#555555] rounded-t-full "></div>
               </div>
             </motion.div>
             <motion.div className="h-1/2 w-full bg-white rounded-b-full border-2 border-t-0 border-[#555555] shadow-2xl shadow-[#888888] flex justify-center items-start">
               <div className="h-1/4 w-1/4 bg-white rounded-b-full border-2 border-[#555555] border-t-0 flex justify-center items-start">
-                <div className="h-1/2 w-1/2 bg-[#555555] rounded-b-full "></div>
+                <div className="h-3/4 w-3/4 bg-white border-2 border-t-0 border-[#555555] rounded-b-full "></div>
               </div>
             </motion.div>
           </motion.div>
