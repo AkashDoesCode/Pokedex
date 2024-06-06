@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactNiceAvatar from "react-nice-avatar";
 import { useNavigate } from "react-router";
 import Avatar, { genConfig } from "react-nice-avatar";
 import { useSelector } from "react-redux";
@@ -49,11 +48,10 @@ function Header() {
       </div>
 
       {profileView && (
-        <div className="absolute font-serif right-5 bg-white h-20 w-20 rounded-lg shadow-xl text-sm flex flex-col items-center text-center cursor-pointer">
-          <div className="h-1/2 w-3/4 border-b-2 border-[#AAAAAA] pt-2">
+        <div className="absolute z-10 right-5 font-serif bg-white h-20 w-20 rounded-lg shadow-xl text-sm flex flex-col items-center text-center cursor-pointer">
+          <div className="h-1/2 w-3/4 border-b-2 border-[#AAAAAA] pt-2 " >
             profile
           </div>
-         
           <Logout />
         </div>
       )}

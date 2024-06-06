@@ -6,7 +6,7 @@ Welcome to Pokedex, a React-based Pokemon database application!
 Pokedex is a web application designed to help Pokemon enthusiasts to keep track of their Pokemon collection.Pokedex provides a user-friendly interface to browse, search, and learn about different Pokemon species.
 
 ## Features
-- **Search:** Easily search for Pokemon by name or type.
+- **Search:** Easily search for Pokemon by name or type with autocomplete search suggestions.
 - **Browse:** Explore a comprehensive database of Pokemon species.
 - **Details**: View detailed information about each Pokemon, including stats, abilities, and evolutions.
 - **Responsive**: Enjoy a seamless experience across devices, including desktops, tablets, and mobile phones.

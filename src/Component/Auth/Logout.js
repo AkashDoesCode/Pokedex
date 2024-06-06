@@ -19,9 +19,6 @@ function Logout() {
           navigate('/');
         })
     }
-
-   
-
   return (
     <div>
         <button className='pt-2' onClick={handleLogout}>Logout</button>

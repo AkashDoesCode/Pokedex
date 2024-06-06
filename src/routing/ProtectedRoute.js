@@ -7,7 +7,6 @@ import { toast, ToastContainer } from "react-toastify";
 const ProtectedRoute = () => {
   const { userInfo, success, error } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  console.log(userInfo);
 
   useEffect(() => {
     if (!userInfo) toast.info("Why not Login first? Click the pokeball for login");

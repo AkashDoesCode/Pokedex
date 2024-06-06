@@ -22,6 +22,9 @@ const Mainpage = () => {
   const { pokemons, url, nextUrl, prevUrl } = useSelector(
     (state) => state.pokemon.data
   );
+  
+ 
+
 
   useEffect(() => {
     if (pokemontype === "all") dispatch(fetchPokemons());
