@@ -38,6 +38,10 @@ function Search() {
     setSearchedPokemon(searchedValue);
   };
 
+  const openSelectOptionlist = ()=>{
+      selectref.current.showPicker();
+  }
+
   return (
     <div className="flex flex-col items-center relative ">
       <div className=" w-1/2 mt-4 relative">
@@ -59,7 +63,7 @@ function Search() {
             <button onClick={getSinglePokemon}>Search</button>
           </div>
           <div className="pointer-events-auto mb-2 md:mb-0">
-            <FontAwesomeIcon icon={faAngleDown} />
+            <FontAwesomeIcon className=" cursor-pointer " onClick={openSelectOptionlist}  icon={faAngleDown} />
             <select
               value={val}
               ref={selectref}
