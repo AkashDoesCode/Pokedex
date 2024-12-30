@@ -17,7 +17,7 @@ const Pokecard = ({pokemon})=>{
 
     const navigate = useNavigate();
     const handleNavigate = (name) =>{
-        navigate(`${name}`); 
+        navigate(`/pokemon/${name}`); 
     }
     
     return (

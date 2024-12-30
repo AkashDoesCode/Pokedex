@@ -59,7 +59,7 @@ function Authpage() {
             className="bg-green-400 w-[200px] h-full text-center flex flex-col justify-center items-center gap-4 text-sm text-white"
           >
             <h3 className="text-2xl font-bold">New Here?</h3>
-            <img className="h-20" src={image} />
+            <img className="h-20" src={image} alt="#"/>
             <p className="px-4">Sign up! what are you waiting for?</p>
             <button
               className="bg-white text-green-500 rounded-3xl px-7"
@@ -79,7 +79,7 @@ function Authpage() {
             className="bg-green-400 z-10 w-[200px] h-full text-center flex flex-col justify-center items-center gap-4 text-sm text-white"
           >
             <h3 className="text-2xl font-bold">Welcome back!</h3>
-            <img className="h-20" src={image} />
+            <img className="h-20" src={image} alt="#"/>
             <p>Login and explore the world of pokemon</p>
             <button
               className="bg-white text-green-500 rounded-3xl px-7"

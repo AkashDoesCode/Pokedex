@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 const ProtectedRoute = () => {
-  const { userInfo, success, error } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   useEffect(() => {

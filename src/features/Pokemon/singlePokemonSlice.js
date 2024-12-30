@@ -14,7 +14,6 @@ export const fetchSinglePokemon = createAsyncThunk('singlepokemon/fetchSinglePok
         
         const url = `https://pokeapi.co/api/v2/pokemon/${nameorid}`
         const response = await axios.get(url);
-        console.log(response.data.species.url);
         //const pokemonId = response.data.id;
         const speciesUrl = response.data.species.url;
         dispatch(fetchPokemonSpecies(speciesUrl));

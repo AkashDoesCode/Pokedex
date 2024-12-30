@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { loginUser} from "../features/Auth/authSlice";
 
@@ -9,9 +8,8 @@ import { loginUser} from "../features/Auth/authSlice";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  let {error} = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
 
   
 

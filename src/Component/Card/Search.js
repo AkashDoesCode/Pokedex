@@ -29,7 +29,7 @@ function Search() {
 
   const getSinglePokemon = () => {
     if (searchedPokemon !== undefined) {
-      navigate(`/${searchedPokemon}`);
+      navigate(`/pokemon/${searchedPokemon}`);
     }
   };
 

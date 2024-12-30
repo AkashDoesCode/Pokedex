@@ -14,7 +14,7 @@ import {
 import { fetchPokemons } from "../features/Pokemon/pokemonSlice";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useState } from "react";
+import Bot from "../Component/ChatBot/Bot";
 
 const Mainpage = () => {
   const dispatch = useDispatch();
@@ -50,6 +50,7 @@ const Mainpage = () => {
         <>
           <Header />
           <Search />
+          <Bot />
           <div className="flex justify-center flex-wrap">
             {pokemons &&
               pokemons.map((pokemon, index) => (

@@ -12,6 +12,7 @@ import EvolutionChain from "../Component/Card/EvolutionChain";
 import Footer from "./Footer";
 import Header from "./Header";
 import { getBackgroundImage } from "../services/getBackgroundImage"
+import Bot from "../Component/ChatBot/Bot";
 
 
 
@@ -67,6 +68,7 @@ function Fullcard() {
       <>
       <Header />
       <Search />
+      <Bot />
       <div className="flex justify-center my-7">
         <div className="flex justify-center flex-col bg-white w-1/2 overflow-hidden rounded-lg shadow-2xl shadow-black-500/50 md:flex-row">
           <div

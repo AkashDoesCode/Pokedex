@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { registerUser } from "../features/Auth/authSlice";
 
@@ -10,7 +9,7 @@ function Registration() {
   const [confirmpassword, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
 
 
   const isEmailValid = () =>{

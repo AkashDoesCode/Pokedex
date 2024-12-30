@@ -8,7 +8,6 @@ import store from "./app/store";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
-import { ToastContainer } from "react-toastify";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
