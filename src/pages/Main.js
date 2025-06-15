@@ -15,6 +15,7 @@ import { fetchPokemons } from "../features/Pokemon/pokemonSlice";
 import Header from "./Header";
 import Footer from "./Footer";
 import Bot from "../Component/ChatBot/Bot";
+import { ToastContainer } from "react-toastify";
 
 const Mainpage = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,7 @@ const Mainpage = () => {
           <Footer />
         </>
       ) : null}
+      <ToastContainer />
     </>
   );
 };

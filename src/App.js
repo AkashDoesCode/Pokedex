@@ -4,10 +4,11 @@ import Fullcard from './pages/Fullcard';
 import {Route, Routes} from 'react-router-dom';
 import ProtectedRoute from './routing/ProtectedRoute';
 import Authpage from './pages/Authpage';
+import useAutoLogOut from './hooks/useAutoLogOut';
 
 
 function App() {
-
+  useAutoLogOut();
   return (
     <Routes>
       <Route element = {<ProtectedRoute />}>

@@ -1,28 +1,24 @@
-import React from 'react'
-import store from '../../app/store';
-import { persistStore } from "redux-persist";
-import { useNavigate } from 'react-router';
-import { signOut } from "firebase/auth";
-import {auth} from '../../firebase'
-import { toast } from 'react-toastify';
+import React from "react";
+import { useNavigate } from "react-router";
+import useAutoLogOut from "../../hooks/useAutoLogOut";
+
 
 function Logout() {
-    
-    const persistor = persistStore(store);
-    const navigate = useNavigate();
-   
-    const handleLogout =  () => {
-        signOut(auth);
-        persistor.purge().then(()=>{
-          toast.success('logged out successfully')
-          navigate('/');
-        })
-    }
+  //const persistor = persistStore(store);
+  const navigate = useNavigate();
+  const { handleLogout } = useAutoLogOut();
+
+  function logoutOnClick() {
+    handleLogout(navigate, "Logged out successfully");
+  }
+
   return (
     <div>
-        <button className='pt-2' onClick={handleLogout}>Logout</button>
+      <button className="pt-2" onClick={logoutOnClick}>
+        Logout
+      </button>
     </div>
-  )
+  );
 }
 
-export default Logout
+export default Logout;

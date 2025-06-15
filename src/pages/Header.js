@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router";
 import Avatar, { genConfig } from "react-nice-avatar";
 import { useSelector } from "react-redux";
@@ -14,6 +14,19 @@ function Header() {
   const showProfileBox = () => {
     setProfileView(!profileView);
   };
+
+  // useEffect(() => {
+  //   const handleClick = () =>{
+  //     showProfileBox();
+  //   }
+
+  //   document.addEventListener('mousedown', handleClick);
+  
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClick);
+  //   }
+  // }, [profileView]);
+  
 
   return (
     <>
