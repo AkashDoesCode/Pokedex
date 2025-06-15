@@ -50,13 +50,12 @@ function Bot() {
 
 
   const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
-  //console.log(process.env);
 
   const genarateChat = async (message) => {
     try {
       setLoading(true);
       setDisableInput(true);
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
       const prompt = `You are pokedex,  a helpful pokemon chatbot. You know about pokemon, their types, description and everything else about them. If the user asks about a particular pokemon, respond with information about it. If user asks a question that is not related to pokemon, you can respond that you are a pokemon chatbot. The user's question is: ${message}`;
       const result = await model.generateContent(prompt);
       const response = result.response;
