@@ -85,7 +85,6 @@ function Search() {
           .filter((name) => {
             const inputname = searchedPokemon.toLowerCase();
             const pokemon = name.toLowerCase();
-            
             return inputname && pokemon.includes(inputname);
           })
           .slice(0, 5)

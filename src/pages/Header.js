@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef} from "react";
 import { useNavigate } from "react-router";
 import Avatar, { genConfig } from "react-nice-avatar";
 import { useSelector } from "react-redux";
@@ -10,22 +10,25 @@ function Header() {
   const config = genConfig(userInfo.user.email); // creating avatar based on email;
 
   const [profileView, setProfileView] = useState(false);
+  const menuref = useRef(null);
+  const openmenuref = useRef(null);
 
   const showProfileBox = () => {
     setProfileView(!profileView);
   };
 
-  // useEffect(() => {
-  //   const handleClick = () =>{
-  //     showProfileBox();
-  //   }
-
-  //   document.addEventListener('mousedown', handleClick);
+  useEffect(() => {
+    const handleClick = (event) =>{
+      if(openmenuref.current && !openmenuref.current.contains(event.target) && menuref.current && !menuref.current.contains(event.target)){
+          setProfileView(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
   
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClick);
-  //   }
-  // }, [profileView]);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    }
+  }, [profileView]);
   
 
   return (
@@ -53,7 +56,7 @@ function Header() {
 
       {/* below code is for creating user avatar using react-nice-avatar library */}
 
-      <div className="absolute top-6 right-3 sm:right-10" onClick={showProfileBox}>
+      <div ref = {openmenuref} className="absolute top-6 right-3 sm:right-10" onClick={showProfileBox}>
         <Avatar
           className="w-10 h-10 cursor-pointer border-2 border-red-500"
           {...config}
@@ -61,8 +64,8 @@ function Header() {
       </div>
 
       {profileView && (
-        <div className="absolute z-10 right-5 font-serif bg-white h-20 w-20 rounded-lg shadow-xl text-sm flex flex-col items-center text-center cursor-pointer">
-          <div className="h-1/2 w-3/4 border-b-2 border-[#AAAAAA] pt-2 " >
+        <div ref = {menuref} className="absolute z-10 right-3 sm:right-10 font-serif bg-white h-20 sm:w-20 w-16 rounded-lg shadow-xl text-sm flex flex-col items-center text-center cursor-pointer">
+          <div onClick={() => navigate('/profile')} className="h-1/2 w-3/4 border-b-2 border-[#AAAAAA] pt-2 " >
             profile
           </div>
           <Logout />

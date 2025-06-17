@@ -16,6 +16,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Bot from "../Component/ChatBot/Bot";
 import { ToastContainer } from "react-toastify";
+import PaginatedList from "../Component/Card/PaginatedList";
 
 const Mainpage = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ const Mainpage = () => {
         <>
           <Header />
           <Search />
+          <PaginatedList />
           <Bot />
           <div className="flex justify-center flex-wrap">
             {pokemons &&

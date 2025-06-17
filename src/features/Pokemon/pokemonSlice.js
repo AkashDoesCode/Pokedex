@@ -11,7 +11,8 @@ const initialState ={
         nextUrl: ''
     },
     error: {}, //be remember error here is an object not a string
-    pokemontype : 'all'
+    pokemontype : 'all',
+    pageSize : 8
 }
 
 
@@ -30,7 +31,7 @@ export const fetchPokemons = createAsyncThunk('pokemon/fetchPokemons' , async(_,
                 return pokemon.data
             })
         )
-        return newData
+        return newData;
    
 })
 
@@ -83,6 +84,7 @@ const pokemonSlice = createSlice({
         builder.addCase(fetchPokemons.fulfilled, (state,action) => {
             state.loading = false
             state.data.pokemons = action.payload
+            state.pageSize = action.payload.length
             state.error =''
         })
         builder.addCase(fetchPokemons.rejected,(state,action)=>{
